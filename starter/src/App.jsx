@@ -39,25 +39,6 @@ const App = () => {
     })
   }
 
-  // const prevPerson = () => {
-  //   setIndex((index) => {
-  //     let newIndex = index - 1
-  //     if(newIndex < 0){
-  //       newIndex = people.length - 1
-  //     }
-  //     return newIndex
-  //   })
-  // }
-  // const nextPerson = () => {
-  //   setIndex((index) => {
-  //     let newIndex = index + 1
-  //     if(newIndex > people.length - 1){
-  //       newIndex = 0
-  //     }
-  //     return newIndex
-  //   })
-  // }
-
   return (
     <main>
       <article className="review">
