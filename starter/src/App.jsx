@@ -7,30 +7,56 @@ const App = () => {
 
   const {name, job, image, text} = people[index]
 
-  // console.log(1 % 4);
-  // console.log(2 % 4);
-  // console.log(3 % 4);
-  // console.log(4 % 4);
-  // console.log(10 % 4);
+  const checkNumber = (number) => {
+    if(number > people.length - 1){
+      return 0
+    }
+    if(number < 0){
+      return people.length - 1
+    }
+    return number
+  }
+
+  const randomPerson = () => {
+    let randomNumber = Math.floor(Math.random() * people.length)
+    if(randomNumber === index){
+      randomNumber = index + 1
+    }
+    setIndex(checkNumber(randomNumber))
+  }
 
   const prevPerson = () => {
     setIndex((index) => {
       let newIndex = index - 1
-      if(newIndex < 0){
-        newIndex = people.length - 1
-      }
-      return newIndex
+      return checkNumber(newIndex)
     })
   }
+
   const nextPerson = () => {
     setIndex((index) => {
       let newIndex = index + 1
-      if(newIndex > people.length - 1){
-        newIndex = 0
-      }
-      return newIndex
+      return checkNumber(newIndex)
     })
   }
+
+  // const prevPerson = () => {
+  //   setIndex((index) => {
+  //     let newIndex = index - 1
+  //     if(newIndex < 0){
+  //       newIndex = people.length - 1
+  //     }
+  //     return newIndex
+  //   })
+  // }
+  // const nextPerson = () => {
+  //   setIndex((index) => {
+  //     let newIndex = index + 1
+  //     if(newIndex > people.length - 1){
+  //       newIndex = 0
+  //     }
+  //     return newIndex
+  //   })
+  // }
 
   return (
     <main>
@@ -52,6 +78,9 @@ const App = () => {
             <FaChevronRight />
           </button>
         </div>
+        <button className="btn" onClick={randomPerson}>
+          suprise me
+        </button>
       </article>
     </main>
   )
